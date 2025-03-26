@@ -9,6 +9,7 @@ class DartRunner:
     @staticmethod
     def compile_dart(dart_file):
         # No compile needed for Dart
+        pass
 
     @staticmethod
     def run_dart(dart_file, input_file):
