@@ -1,9 +1,9 @@
 import unittest
 import os
 from scripts.docker_handler import DockerHandler
-from scripts.asm_runner import AssemblyRunner
+from scripts.dart_runner import DartRunner
 
-class TestAssemblyPrograms(unittest.TestCase):
+class TestDartPrograms(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         DockerHandler.start_container()
@@ -13,18 +13,18 @@ class TestAssemblyPrograms(unittest.TestCase):
         DockerHandler.stop_container()
 
     def test_1(self):
-        asm_file = "Q2.asm"
+        dart_file = "solution.dart"
         input_file = "input4.txt"
         output_file = "output4.txt"
 
-        AssemblyRunner.compile_asm(asm_file)
-        output = AssemblyRunner.run_asm(asm_file, input_file)
+        DartRunner.compile_asm(dart_file)
+        output = DartRunner.run_asm(dart_file, input_file)
 
-        output_path = os.path.join(AssemblyRunner.TEST_CASES_FOLDER, "out", output_file)
+        output_path = os.path.join(DartRunner.TEST_CASES_FOLDER, "out", output_file)
         with open(output_path, "r") as f:
             expected_output = [line.strip() for line in f.readlines()]
 
-        self.assertEqual(output, expected_output, f"Unexpected output for {asm_file}")
+        self.assertEqual(output, expected_output, f"Unexpected output for {dart_file}")
 
 
 if __name__ == "__main__":
