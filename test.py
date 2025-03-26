@@ -8,10 +8,9 @@ class TestDartPrograms(unittest.TestCase):
     def setUpClass(cls):
         DockerHandler.start_container()
 
-    # @classmethod
-    # def tearDownClass(cls):
-    #     DockerHandler.stop_container()
-
+    @classmethod
+    def tearDownClass(cls):
+        DockerHandler.stop_container()
 
     def test_1(self):
         dart_file = "solution.dart"

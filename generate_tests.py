@@ -66,7 +66,7 @@ def generate_test_file(test_cases, solution_file):
     test_content = '''import unittest
 import os
 from scripts.docker_handler import DockerHandler
-from scripts.asm_runner import DartRunner
+from scripts.dart_runner import DartRunner
 
 class TestDartPrograms(unittest.TestCase):
     @classmethod
